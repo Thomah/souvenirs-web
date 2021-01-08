@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ConfigService } from './config/config.service';
+import { FileService } from './file/file.service';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +8,40 @@ import { ConfigService } from './config/config.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  href: string = '';
-  apiUrl: string = '';
 
-  constructor(private configService: ConfigService) {}
+  items: any[];
+
+  constructor(private configService: ConfigService, private fileService: FileService) {}
 
   ngOnInit(): void {
-    this.href = location.origin;
-    console.log(this.configService.getConfig());
-    this.apiUrl = this.configService.getConfig()[this.href].apiUrl;
+    this.configService.setApiUrl(this.configService.getConfig()[location.origin].apiUrl);
+    this.refresh();
   }
+
+  refresh(): void {
+    this.fileService.list()
+      .subscribe(response => {
+        this.items = response;
+      });
+  }
+
+  upload(event) {
+    console.log(event.target.files[0]);
+    if (event.target.files && event.target.files[0]) {
+      const formData = new FormData();  
+      formData.append('file', event.target.files[0]);  
+      this.fileService.upload(formData)
+        .subscribe(() => {
+          this.refresh();
+        });
+    }
+  }
+  
+  delete(id): void {
+    this.fileService.delete(id)
+      .subscribe(() => {
+        this.refresh();
+      });
+  }
+
 }

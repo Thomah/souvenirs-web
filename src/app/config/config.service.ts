@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class ConfigService {
   private appConfig: any;
+  private apiUrl: string = '';
 
   constructor(private _http: HttpClient) {}
 
@@ -14,6 +15,14 @@ export class ConfigService {
       .then((res) => {
         this.appConfig = res;
       });
+  }
+
+  getApiUrl(): string {
+    return this.apiUrl;
+  }
+
+  setApiUrl(apiUrl: string) {
+    this.apiUrl = apiUrl;
   }
 
   getConfig() {
