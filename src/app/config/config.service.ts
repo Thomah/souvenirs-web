@@ -10,7 +10,7 @@ export class ConfigService {
 
   loadConfig() {
     return this._http
-      .get('https://api.jsonbin.io/b/5ff372a714be54706019a60d/2')
+      .get('./assets/config.json')
       .toPromise()
       .then((res) => {
         this.appConfig = res;

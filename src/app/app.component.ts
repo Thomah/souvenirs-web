@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   constructor(private configService: ConfigService, private fileService: FileService) {}
 
   ngOnInit(): void {
-    this.configService.setApiUrl(this.configService.getConfig()[location.origin].apiUrl);
+    this.configService.setApiUrl(this.configService.getConfig().apiUrl);
     this.refresh();
   }
 
