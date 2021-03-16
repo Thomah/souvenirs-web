@@ -51,6 +51,7 @@ Then, run the command :
 ```bash
 docker run -d --name souvenirs-web \
   -p 80:80 \
+  -e PORT="80" \
   -v <YOUR_HOST_DIRECTORY>/files:/usr/share/nginx/html/img
   -v <YOUR_HOST_DIRECTORY>/config.json:/usr/share/nginx/html/assets/config.json \
   thomah/souvenirs-web:<tag>
