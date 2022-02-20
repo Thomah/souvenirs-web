@@ -1,11 +1,12 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ConfigService } from '../config/config.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class FileService {
+
   constructor(private http: HttpClient, private configService: ConfigService) {}
 
   list() {

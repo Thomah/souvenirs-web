@@ -9,7 +9,7 @@ import { FileService } from './file/file.service';
 })
 export class AppComponent implements OnInit {
 
-  items: any[];
+  items: any[] = [];
 
   constructor(private configService: ConfigService, private fileService: FileService) {}
 
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       });
   }
 
-  upload(event) {
+  upload(event: any) {
     console.log(event.target.files[0]);
     if (event.target.files && event.target.files[0]) {
       const formData = new FormData();  
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
     }
   }
   
-  delete(id): void {
+  delete(id: any): void {
     this.fileService.delete(id)
       .subscribe(() => {
         this.refresh();

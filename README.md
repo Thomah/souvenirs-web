@@ -1,57 +1,27 @@
-# Souvenirs - Web
+# SouvenirsWeb
 
-## Requirements
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
 
-This project requires a running instance of [souvenirs-api](https://github.com/Thomah/souvenirs-api).
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
-### Build with Angular CLI
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-With [Angular CLI](https://github.com/angular/angular-cli), you can build the app only :
+## Running unit tests
 
-```bash
-ng build
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### Build the Docker image
+## Running end-to-end tests
 
-With Docker, you can build the image :
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-```bash
-docker build . --build-arg configuration=production
-```
+## Further help
 
-## Run
-
-### Run locally in development
-
-With [Angular CLI](https://github.com/angular/angular-cli), you can run a dev server :
-
-```bash
-ng serve
-```
-
-Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-### Run with Docker
-
-On your host, create a `config.json` file with the following content :
-
-```json
-{
-  "apiUrl": "<SOUVENIRS_API_URL>"
-}
-```
-
-Also make sure you have the `files` directory used by the `souvenirs-api` component.
-
-Then, run the command :
-
-```bash
-docker run -d --name souvenirs-web \
-  -p 80:80 \
-  -e PORT="80" \
-  -v <YOUR_HOST_DIRECTORY>/config.json:/usr/share/nginx/html/assets/config.json \
-  thomah/souvenirs-web:<tag>
-```
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ConfigService } from './config/config.service';
 
 const appConfig = (config: ConfigService) => {
@@ -25,4 +25,4 @@ const appConfig = (config: ConfigService) => {
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
