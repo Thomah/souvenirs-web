@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     console.log(event.target.files[0]);
     if (event.target.files && event.target.files[0]) {
       const formData = new FormData();  
-      formData.append('file', event.target.files[0]);  
+      formData.append('file', event.target.files[0]);
       this.fileService.upload(formData)
         .subscribe(() => {
           this.refresh();
