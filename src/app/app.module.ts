@@ -2,6 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {WebcamModule} from 'ngx-webcam';
+
 import { AppComponent } from './app.component';
 import { ConfigService } from './config/config.service';
 
@@ -13,7 +15,11 @@ const appConfig = (config: ConfigService) => {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [
+    BrowserModule, 
+    HttpClientModule,
+    WebcamModule
+  ],
   providers: [
     ConfigService,
     {
